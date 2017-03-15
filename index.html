@@ -4,6 +4,7 @@
     <meta charset="utf8">
     <title>Bubble Shooter</title>
     <link href="_css/main.css" rel="stylesheet">
+    <link href="_css/game.css" rel="stylesheet">
     <script src="_js/modernizr.js"></script>
     <script>
       Modernizr.load([
@@ -16,6 +17,7 @@
           }
         },
         "_js/ui.js",
+        "_js/bubble.js",
         {
         load : "_js/game.js",
         complete: function(){
@@ -32,7 +34,9 @@
     <div id="page">
       <div id="top_bar"></div>
       
-      <div id="game_screen"></div>
+      <div id="game_screen">
+        <div id="board"></div>
+      </div>
       
       <div id="footer_bar"></div>
       
