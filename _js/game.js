@@ -3,6 +3,8 @@ BubbleShoot.Game = (function($){
   var Game = function(){
     var curBubble;
     var board;
+    var numBubbles;
+    var MAX_BUBBLES = 70;
 
     this.init = function(){
       $(".but_start_game").bind("click",startGame);
@@ -11,6 +13,7 @@ BubbleShoot.Game = (function($){
 
     var startGame = function(){
       $(".but_start_game").unbind("click");
+      numBubbles = MAX_BUBBLES;
       BubbleShoot.UI.hideDialog();
       curBubble = getNextBubble();
       board = new BubbleShoot.Board();
@@ -22,6 +25,8 @@ BubbleShoot.Game = (function($){
       var bubble = BubbleShoot.Bubble.create();
       bubble.getSprite().addClass("cur_bubble");
       $("#board").append(bubble.getSprite());
+      BubbleShoot.UI.drawBubblesRemaining(numBubbles);
+      numBubbles--;
       return bubble;
     };
 
@@ -37,6 +42,7 @@ BubbleShoot.Game = (function($){
         y: bubbleCoords.top - distY
       };
       BubbleShoot.UI.fireBubble(curBubble, coords, duration);
+      curBubble = getNextBubble();
     };
   };
 

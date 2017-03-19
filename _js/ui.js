@@ -46,6 +46,7 @@ BubbleShoot.UI = (function($){
         easing: "linear"
       });
     },
+    
     drawBoard: function(board) {
       var rows = board.getRows();
       var gameArea = $("#board");
@@ -65,6 +66,10 @@ BubbleShoot.UI = (function($){
           }
         }
       }
+    },
+    
+    drawBubblesRemaining: function(numBubbles) {
+      $('#bubbles_remaining').text(numBubbles);
     }
   };
   return UI;
